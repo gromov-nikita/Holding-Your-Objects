@@ -20,7 +20,8 @@ public class Runner {
             list.add(array[i]);
         }
         System.out.println(list.size());
-        list.subList(1,3).clear();
+        List<Class> subList = list.subList(1,3);
+        subList.clear();
         System.out.println(list.size());
 
     }
