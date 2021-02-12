@@ -9,9 +9,11 @@ Integers to the List by always inserting them in the middle of the List.
 public class Runner {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
-        ListIterator<Integer> lit = list.listIterator(0);
+        list.addFirst(-1);
+        list.addLast(-2);
+        ListIterator<Integer> lit = list.listIterator(1);
         for(int i = 0; i < 10; i++) {
-            list.add(lit.nextIndex(),i);
+            lit.add(i);
         }
         Iterator<Integer> it = list.iterator();
         while(it.hasNext()){
