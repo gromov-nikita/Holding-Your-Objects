@@ -1,7 +1,3 @@
-import com.sun.source.doctree.SeeTree;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -28,7 +24,6 @@ public class Runner {
         set.add('o');
         set.add('u');
         set.add('y');
-        Scanner scanner = new Scanner(System.in);
         String str = "qweAfghiIffff";
         for(int i = 0; i < str.length(); i++) {
             if(set.contains(str.charAt(i))) {
@@ -36,7 +31,7 @@ public class Runner {
             }
         }
         System.out.println(counter);
-        FileReader file = new FileReader("D:\\2\\Holding-Your-Objects\\16)\\src\\read.txt");
+        FileReader file = new FileReader("src\\read.txt");
         int fsize = 0;
         while(file.read() != -1) {
             fsize++;
@@ -44,7 +39,7 @@ public class Runner {
         System.out.println(fsize);
         file.close();
         char [] array = new char[fsize];
-        file = new FileReader("D:\\2\\Holding-Your-Objects\\16)\\src\\read.txt");
+        file = new FileReader("src\\read.txt");
         file.read(array);
         for(int i = 0; i < array.length; i++) {
             if(set.contains(array[i])) {
