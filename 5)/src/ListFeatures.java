@@ -1,12 +1,10 @@
 import java.util.*;
 import pets.*;
+import static pets.PetCount.print;
 public class ListFeatures {
-    public static void print(String s) {
-        System.out.println(s);
-    }
     public static void main(String[] args) {
         Random rand = new Random(47);
-        List<Pet> pets = Pet.arrayList(7);
+        List<Pet> pets = Pets.arrayList(7);
         print("1: " + pets);
         Hamster h = new Hamster();
         pets.add(h); // Automatically resizes
@@ -51,7 +49,7 @@ public class ListFeatures {
         pets.clear(); // Remove all elements
         print("19: " + pets);
         print("20: " + pets.isEmpty());
-        pets.addAll(Pet.arrayList(4));
+        pets.addAll(Pets.arrayList(4));
         print("21: " + pets);
         Object[] o = pets.toArray();
         print("22: " + o[3]);

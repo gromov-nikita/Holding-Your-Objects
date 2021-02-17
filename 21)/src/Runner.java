@@ -48,7 +48,7 @@ public class Runner {
         }
         System.out.println(map.toString());
         //LinkedHashMap<String,Integer> lMap = new LinkedHashMap<String,Integer>(map);
-        List<String> list = new ArrayList<String>(map.keySet());
+        List<String> list = new ArrayList<String>(map.keySet();
         System.out.println(list.toString());
         Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
         System.out.println(list.toString());
