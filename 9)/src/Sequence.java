@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.List;
 
 public class Sequence {
-    private Vector<Object> items = new Vector<Object>();
+    private List<Object> items = new ArrayList<Object>();
     public void add(Object x) {
         items.add(x);
     }

@@ -14,6 +14,7 @@ public class Runner {
         ListIterator<Integer> lit = list.listIterator(1);
         for(int i = 0; i < 10; i++) {
             lit.add(i);
+            lit = list.listIterator(list.size()/2);
         }
         Iterator<Integer> it = list.iterator();
         while(it.hasNext()){

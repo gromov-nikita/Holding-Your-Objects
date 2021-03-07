@@ -7,11 +7,11 @@ public class Runner {
     public static void main(String[] args) {
         Iterators obj = new Iterators();
         for(int i = 0; i < 10; i++) {
-            obj.addVector(new Str(Integer.toString(i)));
-            obj.addArrayList(new Str(Integer.toString(i)));
-            obj.addLinkedList(new Str(Integer.toString(i)));
-            obj.addArrayDeque(new Str(Integer.toString(i)));
-            obj.addBackArrayDeque(new Str(Integer.toString(i)));
+            obj.addVector(i);
+            obj.addArrayList(i);
+            obj.addLinkedList(i);
+            obj.addArrayDeque(i);
+            obj.addBackArrayDeque(i);
         }
         System.out.println("Vector");
         obj.print(obj.getIteratorVector());

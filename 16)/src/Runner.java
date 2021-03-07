@@ -1,5 +1,7 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.CharBuffer;
 import java.util.*;
 
 /*
@@ -11,43 +13,44 @@ public class Runner {
     public static void main(String[] args) throws IOException {
         int counter = 0;
         int fcounter = 0;
-        Set<Character> set = new HashSet<Character>();
-        set.add('A');//«A», «E», «I», «O», «U», «Y»
-        set.add('E');
-        set.add('I');
-        set.add('O');
-        set.add('U');
-        set.add('Y');
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('y');
-        String str = "qweAfghiIffff";
+        //Set<Character> set = new HashSet<Character>();
+        String vowels= "AEIOUYaeiouy";
+        char [] set = vowels.toCharArray();//«A», «E», «I», «O», «U», «Y»
+        String str = "qweAfghiIffffy";
         for(int i = 0; i < str.length(); i++) {
-            if(set.contains(str.charAt(i))) {
-                counter++;
+            for(int j = 0; j < set.length; j++) {
+                if (set[j] == str.charAt(i)) {
+                    counter++;
+                    break;
+                }
             }
         }
         System.out.println(counter);
-        FileReader file = new FileReader("src\\read.txt");
-        int fsize = 0;
-        while(file.read() != -1) {
-            fsize++;
-        }
-        System.out.println(fsize);
-        file.close();
-        char [] array = new char[fsize];
-        file = new FileReader("src\\read.txt");
-        file.read(array);
-        for(int i = 0; i < array.length; i++) {
-            if(set.contains(array[i])) {
-                fcounter++;
+        try {
+            FileReader file = new FileReader("src\\read.txt");
+            List<Character> list = new ArrayList<>();
+            int save = file.read();
+            while(save != -1) {
+                list.add((char)save);
+                save = file.read();
             }
+            System.out.println(list.size());
+            Iterator<Character> it = list.iterator();
+            char saveC;
+            while(it.hasNext()) {
+                saveC = it.next();
+                for(int j = 0; j < set.length; j++) {
+                    if (set[j] == saveC) {
+                        fcounter++;
+                        break;
+                    }
+                }
+            }
+            System.out.println(fcounter);
+            file.close();
         }
-        System.out.println(fcounter);
-        file.close();
+        catch(FileNotFoundException t) {
+            System.err.println("File not found");
+        }
     }
-
 }
