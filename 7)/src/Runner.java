@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -15,10 +16,7 @@ public class Runner {
         array[2] = new Class();
         array[3] = new Class();
         array[4] = new Class();
-        List<Class> list = new ArrayList<Class>();
-        for(int i = 0; i < 5; i++) {
-            list.add(array[i]);
-        }
+        List<Class> list = new ArrayList<Class>(Arrays.asList(array));
         System.out.println(list.size());
         List<Class> subList = list.subList(1,3);
         subList.clear();

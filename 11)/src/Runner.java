@@ -8,17 +8,9 @@ public class Runner {
         Iterators obj = new Iterators();
         for(int i = 0; i < 10; i++) {
             obj.addVector(new Str(Integer.toString(i)));
-        }
-        for(int i = 0; i < 10; i++) {
             obj.addArrayList(new Str(Integer.toString(i)));
-        }
-        for(int i = 0; i < 10; i++) {
             obj.addLinkedList(new Str(Integer.toString(i)));
-        }
-        for(int i = 0; i < 10; i++) {
             obj.addArrayDeque(new Str(Integer.toString(i)));
-        }
-        for(int i = 0; i < 10; i++) {
             obj.addBackArrayDeque(new Str(Integer.toString(i)));
         }
         System.out.println("Vector");
