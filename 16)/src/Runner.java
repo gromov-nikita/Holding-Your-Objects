@@ -26,8 +26,9 @@ public class Runner {
             }
         }
         System.out.println(counter);
+        FileReader file = null;
         try {
-            FileReader file = new FileReader("src\\read.txt");
+            file = new FileReader("src\\red.txt"); //read.txt
             List<Character> list = new ArrayList<>();
             int save = file.read();
             while(save != -1) {
@@ -47,10 +48,12 @@ public class Runner {
                 }
             }
             System.out.println(fcounter);
-            file.close();
         }
         catch(FileNotFoundException t) {
             System.err.println("File not found");
+        }
+        finally {
+            file.close();
         }
     }
 }

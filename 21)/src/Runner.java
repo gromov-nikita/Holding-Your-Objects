@@ -16,26 +16,29 @@ String.CASE_INSENSITIVE_ORDER (to produce an alphabetic sort), and display the
 result.
  */
 public class Runner {
-    public static Vector<String> fileReader(String s) throws IOException {
-        Vector<String> vector = new Vector<String>();
+    public static List<String> fileReader(String s) throws IOException {
+        List<String> list = new LinkedList<String>();
+        FileReader file = null;
         try {
-            FileReader file = new FileReader(s);
+            file = new FileReader(s);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
-                vector.add(scanner.nextLine());
+                list.add(scanner.nextLine());
             }
-            file.close();
         }
         catch(FileNotFoundException t) {
             System.out.println("FileNotFoundException");
         }
-        return vector;
+        finally {
+            file.close();
+        }
+        return list;
     }
-    public static Map<String,Integer> fileCounter(Vector<String> vector) {
+    public static Map<String,Integer> fileCounter(List<String> list) {
         int fcounter = 0;
         Map<String,Integer> map = new HashMap<String,Integer>();
-        Iterator<String> it1 = vector.iterator();
-        Iterator<String> it2 = vector.iterator();
+        Iterator<String> it1 = list.iterator();
+        Iterator<String> it2 = list.iterator();
         String save;
         /*
         qwer ty ty qwer y u i qwerty ty qwer qwer qwer qwer
@@ -43,14 +46,8 @@ public class Runner {
         while(it1.hasNext()) {
             save = it1.next();
             if(!map.containsKey(save)) {
-                while (it2.hasNext()) {
-                    if (save.equals(it2.next())) {
-                        fcounter++;
-                    }
-                }
+                fcounter = Collections.frequency(list,save);
                 map.put(save, fcounter);
-                fcounter = 0;
-                it2 = vector.iterator();
             }
         }
         return map;
@@ -64,7 +61,6 @@ public class Runner {
         System.out.println(map.toString());
         System.out.println(map.keySet().toString());
         List<String> list = sortListStr(new ArrayList<String>(map.keySet()));
-        Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
         System.out.println(list.toString());
     }
 }
