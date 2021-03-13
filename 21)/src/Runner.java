@@ -30,7 +30,9 @@ public class Runner {
             System.out.println("FileNotFoundException");
         }
         finally {
-            file.close();
+            if(file != null) {
+                file.close();
+            }
         }
         return list;
     }
