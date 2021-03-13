@@ -6,7 +6,7 @@ Integers to the List by always inserting them in the middle of the List.
  */
 public class Runner {
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new LinkedList<Integer>();
         list.add(-1);
         list.add(-2);
         ListIterator<Integer> lit = list.listIterator(1);
